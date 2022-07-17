@@ -10,7 +10,7 @@ function BodyComponent() {
     return (
         <div className="about">
             <img
-                src="	https://s4.aconvert.com/convert/p3r68-cdx67/adqym-csv3x.svg"
+                src="	https://s4.aconvert.com/convert/p3r68-cdx67/a7mey-cyxx0.svg"
                 width="500"
                 height="500"
                 className="d-inline-block align-top"

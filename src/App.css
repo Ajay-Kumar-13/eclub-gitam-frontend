@@ -78,7 +78,41 @@ a {
   font-family: 'Montserrat', sans-serif;
   color: gray;
   font-weight: bold;
-  font-size: 20px;
+  /* font-size: 20px; */
+}
+
+.header {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:bolder
+}
+
+.jumbotron {
+  background-color: #A5BECC !important;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  padding: 4% 0;
+}
+
+.footer {
+  width: 100%;
+  background-color: #243A73;
+  font-family: 'Montserrat', sans-serif;
+  bottom: 0;
+  color: #F2EBE9;
+}
+
+.btn-social-icon {
+  margin: 0 5px!important;
+}
+
+.carouselImage {
+  width: 50%;
+  height: 80vh;
+}
+
+.Carousel {
+  font-family: 'Montserrat', sans-serif;
 }
 
 @keyframes App-logo-spin {
