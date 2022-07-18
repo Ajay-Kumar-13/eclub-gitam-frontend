@@ -1,7 +1,9 @@
 import React from "react";
 import {Button} from 'react-bootstrap';
+import {useNavigate} from 'react-router-dom';
 
 function Jumbotron() {
+    const navigate = useNavigate();
     return (
         <div className="jumbotron">
             <div className="container">
@@ -13,7 +15,7 @@ function Jumbotron() {
                     </div>
                     <div className="col-12 col-sm-3">
                         <img
-                            src="	https://s4.aconvert.com/convert/p3r68-cdx67/a7mey-cyxx0.svg"
+                            src="https://s4.aconvert.com/convert/p3r68-cdx67/adj99-mwlxy.svg"
                             className="d-inline-block align-top elogo"
                             width="300"
                             alt="carnival-logo"
@@ -21,7 +23,7 @@ function Jumbotron() {
                         />
                     </div>
                     <div className="col-12 col-sm-3">
-                        <Button variant="outline-dark" style={{padding:"15px", fontWeight:"bold"}}>Register for a Event</Button>
+                        <Button variant="outline-dark" style={{padding:"15px", fontWeight:"bold"}} onClick={() => navigate('/register')}>Register for Event</Button>
                     </div>
                 </div>
             </div>

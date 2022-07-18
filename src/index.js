@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.css';
 import 'bootstrap-social/bootstrap-social.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CarnivalComponent from './CarnivalComponent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +17,7 @@ root.render(
 			<Routes>
 				<Route path="/" element={<App />} />
 				<Route path="/home" element={<HomeComponent />} />
+				<Route path="/register" element={<CarnivalComponent />} />
 			</Routes>
 		</BrowserRouter>
 
