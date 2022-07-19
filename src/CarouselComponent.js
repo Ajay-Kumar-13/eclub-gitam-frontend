@@ -19,7 +19,7 @@ function CarouselComponent() {
                 <img
                     className="d-block w-100 carouselImage"
                     alt="Cultural Night Image"
-                    src="https://jta.live/wp-content/uploads/sites/4/2021/05/20210516-SJC-Cultural-Night.00_15_33_38.Still001.jpg"
+                    src="culturalnight.png"
                     // style={{ opacity: "0.7" }}
                 />
                 <Carousel.Caption>
@@ -32,7 +32,7 @@ function CarouselComponent() {
                 <img
                     className="d-block w-100 carouselImage"
                     alt="Concert"
-                    src="https://joelthoughts.files.wordpress.com/2014/06/concert-stock3112.jpg"
+                    src="concert.png"
                     // style={{ opacity: "0.7" }}
                 />
                 <Carousel.Caption>

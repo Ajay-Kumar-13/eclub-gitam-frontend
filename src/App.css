@@ -44,6 +44,15 @@ a {
   margin-right: 20px !important;
 }
 
+.navbar-collapse {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav-item {
+  margin: 10px 0;
+}
+
 .elogo {
   transform: scale(0.7);
 }
@@ -129,12 +138,18 @@ a {
 
 .Events .card {
   border-radius: 10px;
-  width: 90%!important;
+  width: 70%!important;
   transition: all 2s ease;
+  padding: 20px;
+  margin: 25px;
+  
 }
+
+
 
 .card:hover {
   transform: scale(1.1);
+  box-shadow: 6px 5px 16px #888888;
 }
 
 .card img {
@@ -142,30 +157,58 @@ a {
   height: 250px;
 }
 
+.card p {
+  margin-bottom: 5px;
+}
+
+.carousel-caption {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .carouselTitle {
   font-family: 'Kaushan Script', cursive!important;
   color: red;
   font-size: 5rem;
+  opacity: 1;
+  animation-name: text;
+  animation-duration: 4s;
+  transition: all 4s;
+  animation-iteration-count: 1;
+  position: relative;
 }
 
 .carouselText {
   font-family: 'Baloo Thambi 2', cursive;
   color: white;
   font-size: 1.5rem;
-  opacity: 0.7;
+  opacity: 1;
+  animation-name: txt;
+  animation-duration: 4s;
+  transition: all 4s;
+  animation-iteration-count: 1;
+  position: relative;
 }
 
-.carousel-caption {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes text {
+  0% {
+    left: 60%;
+    transform: scale(0.7);
   }
 
-  to {
-    transform: rotate(360deg);
+  100% {
+    left: 0%;
+    transform: scale(1);
+  }
+}
+
+@keyframes txt {
+  0% {
+    right: 60%;
+    transform: scale(0.6);
+  }
+
+  100% {
+    right: 0%;
+    transform: scale(1);
   }
 }

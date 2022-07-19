@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Navbar,
     NavItem,
@@ -8,9 +8,14 @@ import {
     Nav,
     NavbarBrand
 } from 'reactstrap';
+import { Modal, Button, Form } from "react-bootstrap";
 
 function Navbarmain() {
     const [isOpen, setIsOpen] = React.useState(false);
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     return (
         <Navbar color="light" light >
             <div>
@@ -28,13 +33,13 @@ function Navbarmain() {
             <Collapse isOpen={isOpen} navbar>
                 <Nav navbar>
                     <NavItem>
-                        <NavLink href='/home'>Home</NavLink>
+                        <NavLink className="home" href='/home'>Home</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="/register">Carnival Pass</NavLink>
+                        <NavLink className="home" href="/register">Carnival Pass</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="#">Contact Us</NavLink>
+                        <NavLink className="home" onClick={handleShow}>Contact Us</NavLink>
                     </NavItem>
                 </Nav>
             </Collapse>
@@ -47,6 +52,46 @@ function Navbarmain() {
                     alt="gitam-logo"
                 />
             </div>
+            <div style={{ position: "absolute", right: 250, top: 0 }}>
+                <img
+                    src="https://vdc.gitam.edu/main_ui/images/logo/red_vdc.png"
+                    width="300"
+                    height="100"
+                    className="d-inline-block align-top elogo ms-auto"
+                    alt="vdc-logo"
+                />
+            </div>
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Contact Us</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Registration Number</Form.Label>
+                            <Form.Control type="text" placeholder="Enter Registration Number" />
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="text" placeholder="Enter Your Name" />
+                            <Form.Text className="text-muted">
+                                We'll never share your Details with anyone else.
+                            </Form.Text><br />
+                            <Form.Label>Query</Form.Label>
+                            <Form.Control type="text" placeholder="Enter Your Query" />
+                        </Form.Group>
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="outline-secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="outline-success">Send</Button>
+                </Modal.Footer>
+            </Modal>
         </Navbar>
     )
 }

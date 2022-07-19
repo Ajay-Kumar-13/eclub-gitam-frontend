@@ -15,7 +15,7 @@ function Jumbotron() {
                     </div>
                     <div className="col-12 col-sm-3">
                         <img
-                            src="https://s4.aconvert.com/convert/p3r68-cdx67/adj99-mwlxy.svg"
+                            src="carnival.png"
                             className="d-inline-block align-top elogo"
                             width="300"
                             alt="carnival-logo"
@@ -23,7 +23,7 @@ function Jumbotron() {
                         />
                     </div>
                     <div className="col-12 col-sm-3">
-                        <Button variant="outline-dark" style={{padding:"15px", fontWeight:"bold"}} onClick={() => navigate('/register')}>Register for Event</Button>
+                        <Button variant="outline-success" style={{padding:"15px", fontWeight:"bold"}} onClick={() => navigate('/register')}>Register for Event</Button>
                     </div>
                 </div>
             </div>
