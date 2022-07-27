@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Navbar,
     NavItem,
@@ -9,13 +9,58 @@ import {
     NavbarBrand
 } from 'reactstrap';
 import { Modal, Button, Form } from "react-bootstrap";
+import axios from "axios";
 
 function Navbarmain() {
     const [isOpen, setIsOpen] = React.useState(false);
     const [show, setShow] = useState(false);
+    const [regNo, setregNo] = useState("");
+    const [query, setQuery] = useState({
+        RegistrationNumber: "",
+        Name: "",
+        Query: "",
+    });
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleClose = () => {
+        query.RegistrationNumber = "";
+        query.Name = "";
+        query.Query="";
+        setShow(false);
+    };
+    const handleShow = () => {
+        setShow(true);
+        setIsOpen(!isOpen);
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setQuery(prev => {
+            return ({
+                ...prev, [name]: value,
+                RegistrationNumber: regNo
+            })
+        })
+    }
+
+    const handleSend = () => {
+        axios.post("/auth/newQuery/save", query)
+            .then(res => {
+                if(res.data.success) {
+                    window.location.reload();
+                }
+            })
+    }
+
+    useEffect(() => {
+        axios.get("/auth/login/success")
+            .then(res => {
+                axios.get("/auth/getRegno/" + res.data.user._json.email)
+                    .then(response => {
+                        setregNo(response.data.regNo);
+                    })
+            })
+    }, [])
+
     return (
         <Navbar color="light" light >
             <div>
@@ -74,14 +119,14 @@ function Navbarmain() {
                     <Form>
                         <Form.Group className="mb-3">
                             <Form.Label>Registration Number</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Registration Number" />
+                            <Form.Control type="text" placeholder="Enter Registration Number" name="RegistrationNumber" value={query.RegistrationNumber} onChange={handleChange} />
                             <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Your Name" />
+                            <Form.Control type="text" placeholder="Enter Your Name" name="Name" value={query.Name} onChange={handleChange} />
                             <Form.Text className="text-muted">
                                 We'll never share your Details with anyone else.
                             </Form.Text><br />
                             <Form.Label>Query</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Your Query" />
+                            <Form.Control type="text" placeholder="Enter Your Query" name="Query" value={query.Query} onChange={handleChange} />
                         </Form.Group>
                     </Form>
                 </Modal.Body>
@@ -89,7 +134,7 @@ function Navbarmain() {
                     <Button variant="outline-secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="outline-success">Send</Button>
+                    <Button variant="outline-success" onClick={handleSend}>Send</Button>
                 </Modal.Footer>
             </Modal>
         </Navbar>
